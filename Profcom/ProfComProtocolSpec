@@ -1,0 +1,62 @@
+Integer = 8 bytes
+Boolean = 1 byte
+
+ProfCom is a communication protocol used to relay important messages back 
+to a central command. According to our intel ProfCom Servers operate on
+port 8080 to try and mask the identity of the application. We planted
+spyware on a ProfCom users computer and retreived an important asset that
+should be useful to us. We were able to retreive the ProfComClient application
+off of their computer. We have a basic understanding of how this protocol works,
+that information is what follows these instructions.
+
+Client -> Server
+
+	Login Process:
+
+		Integer Length of Username
+		Char Username
+		Integer Length of Password
+		Char Password
+
+Server -> Client
+
+	Login Process:
+
+		Boolean Password Accept/Rejected 
+
+If authentication fails login process is reinitiated by the client.
+
+Client -> Server
+
+	Data Exchange:
+
+		Integer Number of Messages to Send
+		Integer Length of Message
+		Char Data
+
+After this message the client and server will disconnect
+
+
+Question 1:
+
+	What is the username of the user to successfully log in?
+
+Question 2:
+
+	What password is used to successfully authenticate the user?
+
+Question 3:
+
+	What IP address did the user successfully authenticate from?
+
+Question 4:
+
+	What is the IP address of the server?
+
+Question 5:
+
+	How many messages were sent by the user that successfully authenticated?
+
+Question 6:
+
+	What is the flag that was transfered by the protocol?
