@@ -39,15 +39,15 @@ After this message the client and server will disconnect
 
 Question 1:
 
-	What is the username of the user to successfully log in?
+	What are the usernames of the users who successfully log in?
 
 Question 2:
 
-	What password is used to successfully authenticate the user?
+	What password is used to successfully authenticate the 2nd user?
 
 Question 3:
 
-	What IP address did the user successfully authenticate from?
+	What IP address did the 1st user successfully authenticate from?
 
 Question 4:
 
@@ -55,8 +55,12 @@ Question 4:
 
 Question 5:
 
-	How many messages were sent by the user that successfully authenticated?
+	How many messages were sent by the 2nd user that successfully authenticated?
 
 Question 6:
 
 	What is the flag that was transfered by the protocol?
+
+Question 7:
+	
+	Was this capture completed on the server side network, or the client side network?
