@@ -1,0 +1,39 @@
+File: WPA.pcap
+
+Question 1:
+
+	What SSID is associated with the captured handshake?
+
+Question 2:
+
+	What is the BSSID of the wireless access point that is broadcasting the SSID in question 1?
+
+Question 3:
+
+	What is the wireless password for the SSID in question 1?
+
+File: WPA2.pcap
+
+Question 1:
+
+	What SSID is associated with the captured handshake?
+
+Question 2:
+
+	Which channel is the wireless access point broadcasting on?
+
+Question 3:
+
+	Is the wirless access point using 2.4 GHz or 5 GHz?
+
+Question 4:
+
+	What is the transmitter address that is sending deauthentication frames?
+
+Question 5:
+
+	What is the transmitter address that is receiving deauthentication frames?
+
+Question 6:
+
+	What is the wireless password for the SSID in question 1?

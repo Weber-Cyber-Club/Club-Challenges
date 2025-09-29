@@ -42,25 +42,29 @@ Question 1:
 	What are the usernames of the users who successfully log in?
 
 Question 2:
-
-	What password is used to successfully authenticate the 2nd user?
+	
+	What is the key used to encrypt the passwords and messages?
 
 Question 3:
 
-	What IP address did the 1st user successfully authenticate from?
+	What password is used to successfully authenticate the 2nd user?
 
 Question 4:
 
-	What is the IP address of the server?
+	What IP address did the 1st user successfully authenticate from?
 
 Question 5:
 
-	How many messages were sent by the 2nd user that successfully authenticated?
+	What is the IP address of the server?
 
 Question 6:
 
-	What is the flag that was transfered by the protocol?
+	How many messages were sent by the 2nd user that successfully authenticated?
 
 Question 7:
+
+	What is the flag that was transfered by the protocol?
+
+Question 8:
 	
-	Was this capture completed on the server side network, or the client side network?
+	Where was this capture completed based on the diagram?
