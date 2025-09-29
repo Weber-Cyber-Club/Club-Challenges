@@ -2,4 +2,4 @@
 
 ## Purpose 
 
-Contained within this repsoitory will be many challenges and labs that will be used by the Weber State Cyber Club
+Contained within this repository will be many challenges and labs that will be used by the Weber State Cyber Club
