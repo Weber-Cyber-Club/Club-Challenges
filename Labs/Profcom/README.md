@@ -10,7 +10,7 @@
 
 ProfCom is a communication protocol used to relay important messages back to a central command. According to our intel ProfCom Servers operate on port 8080 to try and mask the identity of the application. We planted spyware on a ProfCom users computer and retreived an important asset that should be useful to us. We were able to retreive the ProfComClient application off of their computer. We have a basic understanding of how this protocol works, that information is what follows these instructions.
 
-Client -> Server
+#### Client -> Server
 
 	Login Process:
 
@@ -19,15 +19,15 @@ Client -> Server
 		Integer Length of Password
 		Char Password
 
-Server -> Client
+#### Server -> Client
 
 	Login Process:
 
 		Boolean Password Accept/Rejected 
 
-If authentication fails login process is reinitiated by the client.
+**If authentication fails login process is reinitiated by the client.**
 
-Client -> Server
+#### Client -> Server
 
 	Data Exchange:
 
@@ -35,7 +35,7 @@ Client -> Server
 		Integer Length of Message
 		Char Data
 
-After this message the client and server will disconnect
+**After this message the client and server will disconnect**
 
 
 ### Question 1:
@@ -70,4 +70,4 @@ After this message the client and server will disconnect
 	
 	Where was this capture completed based on the diagram?
 
-	![ProfCom Lab Layout](assets/ProfComLabLayout.png)
+![ProfCom Lab Layout](assets/ProfComLabLayout.png)
