@@ -1,6 +1,8 @@
 # Password Cracking Challenge - Easy
 
-## The Purpose of this challenge is to give an introduction in to hash types and breaking cracking some passwords using a dictionary.
+## Purpose 
+
+This challenge has been created to give an introduction in to hash types and breaking cracking some passwords using a dictionary.
 
 ### Question 1:
 
