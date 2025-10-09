@@ -50,7 +50,7 @@ All challenges and labs will have a README.md. This is a file written with markd
 ## Challenge Layouts
 All challenges should be placed under the [/Challenges/](/Challenges/) Folder. The challenge should be in its own folder which will be named the same as your challenge. Within this folder will be the files that will be used in the challenge, as well as a README.md file and an assets folder if you are going to be needing any images or extra assets for any part of the challenge. Within the README.md file, you should have the purpose of the lab, which will outline what the lab is looking to teach students, as well as all of the questions you would like students to answer. An example of this README.md file will be contained under [Challenges README Layout](#challenges-readme-layout). There should also be an associated answers file under [/Challenges/Answers/](/Challenges/Answers). The format of the /Challenges/Answers/ directory will be as follows: Inside of the /Challenges/Answers/ directory you will add a folder—contained within this folder will be a README.md file containing the answers to the questions of your challenge in the order they were given. Seeing this is not a lab, there is not a requirement of giving a walkthrough. As such, if you want to have a walkthrough, your challenge should be submitted as a lab. Labs are covered under [Lab Layouts](#lab-layouts). If you would like an example of a challenge layout please view [/Challenges/Passwords/Passwords-Medium](/Challenges/Passwords/Passwords_Medium/).
 
-## Challenges Readme Layout!
+## Challenges Readme Layout
 
     # Challenge Title
 
