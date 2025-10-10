@@ -45,7 +45,9 @@ ExifTool is a comprehensive metadata extraction and manipulation tool. While `fi
 To see available options for these tools:
 
 **ExifTool**: `exiftool -h` (both Linux and Windows)
+
 **file**: `file --help (Linux)` or `man file` for detailed documentation
+
 **strings**: `strings --help` (Linux)
 
 Running `file Meta.jpg` produces the following output:
