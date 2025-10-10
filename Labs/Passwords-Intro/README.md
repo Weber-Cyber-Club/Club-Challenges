@@ -9,11 +9,11 @@ The purpose of this lab is to introduce students to hashes, hash types, and pass
 
 **Cryptographic Hash Functions**: A hashing algorithm which maps an arbitrary binary string to a fixed length binary string. What sets a Cryptographic Hash Function (CHF) apart from a Hash Function (HF) are the following properties:
 
-* __(Strong) Collision Resistance__: The probability of a particular *n*-bit output given a random input string input is $2^{-n}$. What this means for every possible input, we have an equal change of any possible output. Making these functions excellent for storing something like a password, or being used to find a checksum of a file. We have a very low chance for a collision of hashes (which will be covered later) especially as the bit size goes up. This is the optimal design for security.
+* __(Strong) Collision Resistance__: The probability of a particular *n*-bit output given a two distant input string inputs is $2^{-n}$. What this means for every possible input, we have an equal change of any possible output. Making these functions excellent for storing something like a password, or being used to find a checksum of a file. We have a very low chance for a collision of hashes (which will be covered later) especially as the bit size goes up. This is the optimal design for security.
 
-* __Preimage Restistance__: The probability of finding an input string that matches a hash value (called a preimage attack) is $2^{-n}$. The resistance to this kind of attack is called the CHFs security strength. A CHF that has *n* bits of hash value is expected to have a preimage resistance strength of *n*.
+* __Preimage Resistance__: The probability of finding an input string that matches a hash value (called a preimage attack) is $2^{-n}$. The resistance to this kind of attack is called the CHFs security strength. A CHF that has *n* bits of hash value is expected to have a preimage resistance strength of *n*.
 
-* __Second Preimage Resistance__: Given an input *m*<sub>1</sub> it should be difficult to find a different message *m*<sub>2</sub> where hash(*m*<sub>1</sub>) == hash(*m*<sub2>2</sub>). This property is also called weak collision resistance.
+* __Second Preimage Resistance__: Given an input *m*<sub>1</sub> it should be difficult to find a different message *m*<sub>2</sub> where hash(*m*<sub>1</sub>) == hash(*m*<sub>2</sub>). This property is also called weak collision resistance.
 
 * __Strong vs Weak Collision Resistance__: What differentiates strong vs weak collision resistance comes down to how many messages you start with. Weak collision starts with a messages *m*<sub>1</sub> then tries to find an *m*<sub>2</sub> that would have a matching hash. Strong collision resistance would require the attacker to find two messages with the same hash, meaning you do not start with a given hash value, you are just trying to find any two messages that have a matching hash value.
 
