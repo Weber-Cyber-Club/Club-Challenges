@@ -24,7 +24,7 @@ Question 2:
 
 Question 3:
 
-	Is the wirless access point using 2.4 GHz or 5 GHz?
+	Is the wireless access point using 2.4 GHz or 5 GHz?
 
 Question 4:
 
