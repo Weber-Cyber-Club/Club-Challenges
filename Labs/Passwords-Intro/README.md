@@ -115,7 +115,7 @@ By default we should have hashcat installed on our machine if we are using kali,
 
     $ hashcat --version
 
-If you do not see you version of hashcat displayed you will need to install it:
+If you do not see your version of hashcat displayed you will need to install it:
 
     # Make sure repositories have been refreshed
     $ sudo apt update
@@ -164,7 +164,7 @@ Next we will need to choose our hash type. Now every attack will be different fo
 
 If you scroll up you can see all of the hash types, but a better way to do this would be using GREP. GREP is a command line tool used to search through the output of a command. Let's use GREP for hash 1's hash type:
 
-    $ hashcat --h | grep "MD5"
+    $ hashcat -hh | grep "MD5"
 
 This output is much better and tells us we need option 0.
 
