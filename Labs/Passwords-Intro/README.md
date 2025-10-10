@@ -216,6 +216,6 @@ These are all of our plaintext passwords. Due to the fact they were just in a st
 ## Conclusion
 In closing, I hope that you now feel more knowledgeable on password cracking techniques, but more importantly, I hope you have learned something about password security. You should now be able to see just how important not only password complexity's, or length are. But also, how bad password reuse can be. This is a very brief overview of password attacks and they get much deeper than this. If you would like to try your hand at some other challenges, spanning different hash types, operating systems, and even tools, you should check out the [Weber State Cyber Club's Password Hacking Folder](/Challenges/Passwords/). There are also a multitude of resources out there on the mathematics behind hash functions, my personal choice for these things is oddly enough [Wikipedia](https://www.wikipedia.org) it is very helpful at giving you an overview of these topics. Thank you for participating in this lab. I hope you learned a lot and enjoyed the format!
 
-- See You Next Time!
-- The Professor
+**Until Next Time!**
 
+**The Professor**
