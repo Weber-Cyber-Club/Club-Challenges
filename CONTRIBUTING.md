@@ -56,7 +56,7 @@ All challenges should be placed under the [/Challenges/](/Challenges/) Folder. T
 
     ## Purpose: Give a basic outline of why this challenge was created, and what students should learn.
 
-    ### Question: Give questions for students to answer.
+    ## Questions: Give questions for students to answer.
 
         Indent questions so students can copy and paste easily, especially if there are some values they will need to evaluate.
 
@@ -83,7 +83,7 @@ The lab section of the repository will mostly be used for labs that will be pres
 
     Special messages should be bolded using **{Message}**
 
-    ### Answers: This section will contain all of the answers to any questions asked within the lab. Be sure to give an explanation of the answer if it is not a cut and dry question and answer. The answers will go here instead of right after the questions to give the students a chance to answer the questions without seeing the answers right away.
+    ## Answers: This section will contain all of the answers to any questions asked within the lab. Be sure to give an explanation of the answer if it is not a cut and dry question and answer. The answers will go here instead of right after the questions to give the students a chance to answer the questions without seeing the answers right away.
 
 ## Wrap Up
 As mentioned previously, the Cyber Club appreciates any contributions to our club. Any way that an individual can find a way to help as always appreciated. However, we do ask that all contributions do fall under a certain set of guidelines, this allows the club to continue helping students in the smoothest way possible, and also ensure the safety of any and all students that want to use this platform to learn. Thank you for your willingness to help the club. We hope to see your contributions soon!
