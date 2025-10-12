@@ -73,7 +73,7 @@ With this information, hopefully now you can see why the four questions we are a
 ## Lab Guide
 
 ### Preliminary Research
-Before we begin we should read the protocol specification to answer the three questions we defined to begin this lab: [Protocol Specification](ProfComProtocolSpec.md).
+Before we begin we should read the protocol specification to answer the four questions we defined to begin this lab: [Protocol Specification](ProfComProtocolSpec.md).
 
 **Endianess/Byte Order:** According to our protocol specification this data will be listed in Little-Endian format. There are a few ways we could have found this however without the help of the specification. Once we start to look at the data, we will notice all integers are listed without a bunch of preliminary zeros. The strings these integers are referencing are also not very large strings, so we can assume we are starting with our least significant bit not the most significant bit. Little endian will also read in a way that makes sense to read in english, although if you're used to reading binary it might not make sense at first as bits are read from most to least significant.
 
@@ -81,7 +81,7 @@ Before we begin we should read the protocol specification to answer the three qu
 
 **Which layers are above and below the protocol?** Seeing this is an application we cannot have any layers above the protocol. We are told in the specification that we are using TCP as our layer 4 protocol, with this information we can also assume that we are using an IP protocol seeing they are the only protocols that work well with TCP. We do not currently know for sure what our layer 2 protocol is, but we have a lot of information already.
 
-One last thing we should keep in mind before looking at our packet capture is, what data types are we working with and how big are they. This information is all referenced with the [ProfCom Protocol Specification](ProfComProtocolSpec.md). We can see we will deal with Integers, Booleans, and Strings (Chars). The Integers are listed as being 8 byte integers, a boolean is going to be a single byte, and the Strings will be whichever size is specified by the integer listed prior to the string. All data will be listed in hexadecimal format, this is why a boolean is listed as a whole byte instead of a single bit although you could definitely list a boolean as a single bit.
+One last thing we should keep in mind before looking at our packet capture is, what data types are we working with and how big are they. This information is all referenced with the [ProfCom Protocol Specification](ProfComProtocolSpec.md). We can see we will deal with Integers, Booleans, and Strings (Chars). The Integers are listed as being 4 byte integers, a boolean is going to be a single byte, and the Strings will be whichever size is specified by the integer listed prior to the string. All data will be listed in hexadecimal format, this is why a boolean is listed as a whole byte instead of a single bit although you could definitely list a boolean as a single bit.
 
 ### Getting in to the Analysis of the Protocol
 
@@ -176,7 +176,8 @@ Our last piece of data went to offset 14 and based on our specification we are r
 
 We see this is hexadecimal number 16, now remember this is hexadecimal not decimal, in binary this would be 00010110, meaning we have a one in the 2s, 4s, and 16s place. Adding these values together we get 22. Using our equation from earlier we are seeking from offset 18 to 40. According to the specification this will be our user's password.
 
-    Offset 0 | 0a000000 | Offset 4 | 5269636b79426f626279 | Offset 14 | 16000000 | Offset 18 | 0c231c2a30042c2b31032c3736311c2a303709243631 | Offset 40 |
+    Offset 0 | 0a000000 | Offset 4 | 5269636b79426f626279 | Offset 14 | 16000000 
+    | Offset 18 | 0c231c2a30042c2b31032c3736311c2a303709243631 | Offset 40 |
 
 Plugging this into the previously used "From Hex" function we are going to see something strange, our data seems to have been corrupted!
 
@@ -222,7 +223,8 @@ Now that we have our recipe built we can plug in our entire password from the PC
 
 Moving on in our analysis, we see our first server message. Which during authentication should just be a one byte boolean (either 01 for true or 00 for false) stating if we have successfully logged in. This would be from offset 40 to 41.
 
-    Offset 0 | 0a000000 | Offset 4 | 5269636b79426f626279 | Offset 14 | 16000000 | Offset 18 | 0c231c2a30042c2b31032c3736311c2a303709243631 | Offset 40 | 00 | Offset 41 |
+    Offset 0 | 0a000000 | Offset 4 | 5269636b79426f626279 | Offset 14 | 16000000 | Offset 18 | 
+    0c231c2a30042c2b31032c3736311c2a303709243631 | Offset 40 | 00 | Offset 41 |
 
 We see 00 here meaning the client did not successfully authenticate. Therefore, the client should be attempting another authentication after this. We do see more traffic so obviously the client is going to try again.
 
@@ -297,7 +299,8 @@ The data at this position is 17 which converts to 23 in decimal. Now we know our
 
 Let's look at our offsets and find what data we are dealing with at this point. We know we ended at Offset 71 so we are going to look 23 bytes from byte 71 giving us offset 94
 
-    | Offset 63 | 02000000 | Offset 67 | 17000000 | Offset 71 | 4f082c36362c2a2b652c3665222a2c2b22653220292964 | Offset 94 |
+    | Offset 63 | 02000000 | Offset 67 | 17000000 | Offset 71 |
+    4f082c36362c2a2b652c3665222a2c2b22653220292964 | Offset 94 |
 
 The segment we are working with now is 4f082c36362c2a2b652c3665222a2c2b22653220292964. If we try to change this from hex to ASCII we will run into the same corrupted look that we ran into earlier trying to look at a password. So remember to run this through and XOR operation in order to get the plain text message from **ProfessorX**. After decoding the message we get:
 
@@ -305,11 +308,15 @@ The segment we are working with now is 4f082c36362c2a2b652c3665222a2c2b226532202
 
 According to our file specification, and the fact we are supposed to be receiving two messages in this transmission we know we should be expecting an integer next, this would be between offsets 94 and 98.
 
-    | Offset 63 | 02000000 | Offset 67 | 17000000 | Offset 71 | 4f082c36362c2a2b652c3665222a2c2b22653220292964 | Offset 94 | 30000000 | Offset 98 |
+    | Offset 63 | 02000000 | Offset 67 | 17000000 | Offset 71 |
+    4f082c36362c2a2b652c3665222a2c2b22653220292964 | Offset 94 | 
+    30000000 | Offset 98 |
 
 30 in decimal is 48 meaning we are going to read the next, and final 48 bytes, all the way to offset 146 of this stream. Then we will XOR decode the final message from **ProfessorX**.
 
-    | Offset 63 | 02000000 | Offset 67 | 17000000 | Offset 71 | 4f082c36362c2a2b652c3665222a2c2b22653220292964 | Offset 94 | 30000000 | Offset 98 | 4f0432242c316523292422652120292c3320373c6523372a2865312d206504292965042820372c26242b65022c37296b | Offset 146 |
+    | Offset 63 | 02000000 | Offset 67 | 17000000 | Offset 71 |
+    4f082c36362c2a2b652c3665222a2c2b22653220292964 | Offset 94 | 30000000 | Offset 98 | 
+    4f0432242c316523292422652120292c3320373c6523372a2865312d206504292965042820372c26242b65022c37296b | Offset 146 |
 
 
 After decoding the message we can see that **ProfessorX** sent this to the server:
@@ -470,7 +477,14 @@ Throughout this lab you have hopefully learned many new things in the world of p
 
 **Question 8:**
    
-    Where was this capture completed based on the diagram? This packet capture is taken from within the ProfCom Hosting Site, specifically on the ProfCom server itself. Although I am really just looking for the “ProfCom Hosting Site”. This can be found by looking at the IP addresses coming from the clients vs the IP address of the server. If we look at the TTL of the packets when they are being captured we would also see the clients TTL is set to 61, meaning there must have been 3 layer 3 hops before the packet reached the server. This would match the diagram assuming the switch between the host and the router is a multi-layer switch, which in this case it is. In this lab scenario you are also better off capturing on the server side, this is because it is the only way to ensure we can capture all of the data from all of our clients.
+    Where was this capture completed based on the diagram? This packet capture is taken from within the ProfCom 
+    Hosting Site, specifically on the ProfCom server itself. Although I am really just looking for the “ProfCom 
+    Hosting Site”. This can be found by looking at the IP addresses coming from the clients vs the IP address of 
+    the server. If we look at the TTL of the packets when they are being captured we would also see the clients TTL 
+    is set to 61, meaning there must have been 3 layer 3 hops before the packet reached the server. This would 
+    match the diagram assuming the switch between the host and the router is a multi-layer switch, which in this 
+    case it is. In this lab scenario you are also better off capturing on the server side, this is because it is 
+    the only way to ensure we can capture all of the data from all of our clients.
 
 **Until Next Time!**
 

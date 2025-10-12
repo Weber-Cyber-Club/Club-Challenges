@@ -6,8 +6,10 @@ The purpose of this specification is to assist in the analysis of the Profos-Sys
 
 ## Data Types
 
+* Data will be in Little-Endian
 * Integer = 4 bytes
 * Boolean = 1 byte
+* Strings (Char) Length will be defined by the integer value before the string.
 
 ## What is ProfCom?
 
