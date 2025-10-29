@@ -30,11 +30,11 @@ This challenge has been created to give an introduction in to hash types and bre
 
 ### Question 7:
 
-	7ff3e5bb1b1b70c20bb1adf9127880cf85fed248
+	b2137ccb5cc2719ff4181ef23cdf6d2299b2ac7b
 
 ### Question 8:
 
-	f860f7c88b1f6b0e5334985c32788c22de4a4daa
+	44341892380f3c9c2a1772976ca28b686ab5d254
 
 ### Question 9:
 
