@@ -12,42 +12,6 @@ body {
     padding-right:15px;
 }
 
-.main_title{
-    text-align: center;
-    border-radius: 10px;
-    border:4px;
-    border-style:solid;
-    border-color:black;
-    background-color: #896462;
-    color:#fff;
-}
-
-.resume_main_title{
-    font-size:60px;
-    text-align: center;
-    border-radius: 10px;
-    border:4px;
-    border-style:solid;
-    border-color:black;
-    background-color: #896462;
-    color:#fff;
-    width:80%;
-    margin-left:10%;
-    margin-right:10%;
-}
-
-.resume_secondary_title{
-    text-align: center;
-    border-radius: 10px;
-    border:4px;
-    border-style:solid;
-    border-color:black;
-    background-color: #896462;
-    color:#fff;
-    padding:10px;
-    font-size:37px;
-}
-
 header {
     background-color:  #896462;
     color: #fff;
@@ -71,102 +35,9 @@ header {
     text-decoration: none;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
-    font-size: 20px;
-    height:100%;
-}
-
-nav li {
-    height:120px;
-    width:150px;
-    text-align:center;
-    align-content:center;
-    padding:0 10px;
-}
-nav li:hover{
-    background-color:#5e4847;
-}
-
-nav a {
-    text-decoration: none;
-    color: whitesmoke;
-}
-
-nav{
-    padding-right:10px;
-}
-
-.primary_content{
-    font-size:30px;
-    color: white;
-    background-color:#896462;
-    border-radius:10px;
-    display:block;
-    justify-content:space-between;
-    align-items:center;
-    margin:10px ;
-    padding:10px;
-    border:4px;
-    border-style:solid;
-    border-color:black;
-}
-
-.resume_primary_content{
-    font-size:20px;
-    color: white;
-    background-color:#896462;
-    border-radius:10px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin:10px ;
-    padding:0 10px;
-    border:4px;
-    border-style:solid;
-    border-color:black;
-}
-
-.secondary_title{
-    font-size:35px;
-    text-decoration: underline;
-    font-weight:bold;
-}
-.warning_label{
-    color:red;
-    text-align:center;
-}
 a{
     color:#fff;
 }
 a:visited{
     color:#fff
-}
-
-.left_side_list{
-    width:40%;
-}
-
-.right_side_list{
-    width:40%;
-}
-
-ul {
-    list-style: none;
-    font-size: 20px;
-}
-
-li {
-    text-align: center;
-    padding: 10px 0;
-}
-
-.educationUL{
-    list-style:square;
-}
-
-.educationUL li{
-    text-align:left;
 }
