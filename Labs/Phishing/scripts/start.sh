@@ -1,6 +1,6 @@
 #!/bin/sh
 
-dovecot
-postfix start
-./usr/src/emailCheck/emailCheck.sh &
-apache2ctl -D FOREGROUND
+# dovecot
+# postfix start
+# ./usr/src/emailCheck/emailCheck.sh &
+httpd -DFOREGROUND
