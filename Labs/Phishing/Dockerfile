@@ -11,7 +11,14 @@ apt-get update && apt-get install -y \
 
 rm -rf /etc/dovecot/*
 rm -rf /etc/postfix/*
-mkdir -p /etc/skel/Maildir/{cur/,.Drafts/,.Sent/,tmp/,.Trash/, new/}
+mkdir /etc/skel/Maildir/
+chmod 766 /etc/skel/Maildir/
+mkdir /etc/skel/Maildir/cur/
+mkdir /etc/skel/Maildir/Drafts/
+mkdir /etc/skel/Maildir/.Sent/
+mkdir /etc/skel/Maildir/tmp/
+mkdir /etc/skel/Maildir/.Trash/
+mkdir /etc/skel/Maildir/new/
 useradd -m --shell /bin/bash professor
 mkdir -p /usr/src/emailCheck/
 rm /etc/apache2/apache2.conf
@@ -25,8 +32,8 @@ COPY configs/apache2/apache2.conf /etc/apache2/apache2.conf
 COPY scripts/emailCheck.sh /usr/src/emailCheck/
 RUN <<EOF
 
-./usr/sbin/dovecot
-./usr/sbin/postfix start
+dovecot
+postfix start
 ./usr/src/emailCheck/emailCheck.sh &
 
 EOF
