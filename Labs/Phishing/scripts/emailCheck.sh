@@ -1,20 +1,16 @@
 #!/bin/bash
 
 got_url="false"
-url="http://10.10.10.10/"
 
 
 while [ $got_url != "true" ]; do
 
 	for FILE in /home/professor/Maildir/new/*; do
 
-		if grep -q $url $FILE; then
+		if url=$(grep -oP 'https?:\/\/[^\s"]+' "$FILE"); then
 
-			echo Got Correct Phishing Email;
+			echo $url;
 			got_url="true";
-		else
-
-			echo Did Not Find Phishing Email;
 
 		fi
 
