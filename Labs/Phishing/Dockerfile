@@ -20,7 +20,6 @@ mkdir /etc/skel/Maildir/tmp/
 mkdir /etc/skel/Maildir/.Trash/
 mkdir /etc/skel/Maildir/new/
 useradd -m --shell /bin/bash professor
-mkdir -p /usr/src/emailCheck/
 rm /etc/apache2/apache2.conf
 
 EOF
@@ -29,15 +28,9 @@ COPY web/ /var/www/html/.
 COPY configs/dovecot/ /etc/dovecot/.
 COPY configs/postfix/ /etc/postfix/.
 COPY configs/apache2/apache2.conf /etc/apache2/apache2.conf
-COPY scripts/emailCheck.sh /usr/src/emailCheck/
-RUN <<EOF
+COPY scripts/emailCheck.sh /usr/local/bin/emailCheck.sh
+COPY scripts/start.sh /usr/local/bin/start.sh
 
-dovecot
-postfix start
-./usr/src/emailCheck/emailCheck.sh &
-
-EOF
-
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD ["/usr/local/bin/start.sh"]
 EXPOSE 80
 EXPOSE 25

@@ -1,6 +1,0 @@
-docker stop test-machine
-docker rm test-machine
-docker rmi p:latest
-docker build -t p .
-docker run -d --name test-machine p
- 
