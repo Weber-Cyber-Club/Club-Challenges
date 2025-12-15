@@ -1,23 +1,19 @@
 FROM registry.fedoraproject.org/fedora-minimal:latest
 
-RUN << EOF 
+RUN dnf install -y httpd  postfix && dnf clean all
+RUN rm  /etc/postfix/main.cf
 
-dnf install -y httpd  postfix && dnf clean all
-rm  /etc/postfix/main.cf
+RUN mkdir /etc/skel/Maildir/
 
-mkdir /etc/skel/Maildir/
+RUN mkdir /etc/skel/Maildir/.INBOX/
+RUN mkdir /etc/skel/Maildir/.Drafts/
+RUN mkdir /etc/skel/Maildir/.Sent/
+RUN mkdir /etc/skel/Maildir/.Trash/
+RUN mkdir /etc/skel/Maildir/tmp/
+RUN mkdir /etc/skel/Maildir/new/
+RUN mkdir /etc/skel/Maildir/cur/
 
-mkdir /etc/skel/Maildir/.INBOX/
-mkdir /etc/skel/Maildir/.Drafts/
-mkdir /etc/skel/Maildir/.Sent/
-mkdir /etc/skel/Maildir/.Trash/
-mkdir /etc/skel/Maildir/tmp/
-mkdir /etc/skel/Maildir/new/
-mkdir /etc/skel/Maildir/cur/
-
-adduser -m -s /bin/bash professor
-
-EOF
+RUN adduser -m -s /bin/bash professor
 
 COPY web/ /var/www/html/.
 COPY configs/postfix/main.cf /etc/postfix/main.cf
