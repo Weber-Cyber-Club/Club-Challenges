@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# dovecot
-# postfix start
-# ./usr/src/emailCheck/emailCheck.sh &
+postfix start
+./usr/local/bin/emailCheck.sh &
 httpd -DFOREGROUND
