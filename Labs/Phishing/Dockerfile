@@ -1,6 +1,7 @@
 FROM registry.fedoraproject.org/fedora-minimal:latest
 
-RUN dnf install -y httpd  postfix && dnf clean all
+RUN dnf install -y npm  postfix && dnf clean all
+RUN mkdir -p /srv/profos-site/
 RUN rm  /etc/postfix/main.cf
 
 RUN mkdir /etc/skel/Maildir/
@@ -15,9 +16,8 @@ RUN mkdir /etc/skel/Maildir/cur/
 
 RUN adduser -m -s /bin/bash professor
 
-COPY web/ /var/www/html/.
+COPY web/ /srv/profos-site/
 COPY configs/postfix/main.cf /etc/postfix/main.cf
-COPY configs/httpd/profos-systems.conf /etc/httpd/conf.d/profos-systems.conf
 COPY scripts/emailCheck.sh /usr/local/bin/emailCheck.sh
 COPY scripts/start.sh /usr/local/bin/start.sh
 
