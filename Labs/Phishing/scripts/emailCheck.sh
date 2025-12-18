@@ -63,5 +63,5 @@ while [ -z "$URL" ]; do
 done
 
 echo "Executing POST request to $URL"
-curl -X POST -d "username=professor&password=The_Most_Secret_And_Secure_Password_There_Is_12345!!@@##" "$URL"
+curl -X POST -d "username=Professor&password=The_Most_Secret_And_Secure_Password_There_Is_12345!!@@##" "$URL"
 echo "Script finished."
