@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheet.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profos Systems</title>
+    <link rel="icon" type="image/x-icon" href="/images/ProfosSystems2.svg" />
+  </head>
+  <body>
+    <header>
+      <a class="logo-link" href="/"
+        ><img class="logo" src="/images/ProfosSystems2.svg" alt="Profos Logo"
+      /></a>
+    </header>
+    <div class="content">
+      <form action="/login" method="POST">
+        <label for="username">Username</label><br />
+        <input type="text" name="username" id="username" required />
+        <br />
+        <label for="password">Password</label><br />
+        <input type="password" name="password" id="password" required />
+        <div class="error">
+          <% if (messages.error) {%>
+            <%= messages.error %> 
+          <% } %>
+        </div>
+        <button class="button-submit" type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
